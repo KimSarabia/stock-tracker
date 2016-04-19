@@ -1,86 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>STOCK TRACKER</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
-  <script src="QuoteService.js"></script>
-  <script src="main.js"></script>
+    <meta charset="UTF-8">
+    <title>STOCK TRACKER</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="QuoteService.js"></script>
+    <script src="main.js"></script>
 </head>
+
 <body>
-  <!-- navbar -->
-  <nav class="navbar navbar-inverse bs-dark">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
+    <!-- navbar -->
+    <nav class="navbar navbar-inverse bs-dark">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+        </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explores <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">News</a></li>
-            <li><a href="#">Sports</a></li>
-            <li><a href="#">Business</a></li>
-            <li><a href="#">Fashion</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Gallery</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Videos</a></li>
-          </ul>
-        </li>
-      </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Explores <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Fashion</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Videos</a></li>
+                    </ul>
+                </li>
+            </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          Account
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle navbar-img" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          You
           <img src="http://placehold.it/150x150" class="img-circle" alt="Profile Image" />
           </a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Inbox</a></li>
-            <li><a href="#">Followers</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Settings</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-</nav>
-  <!-- navbar close -->
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Inbox</a></li>
+                        <li><a href="#">Followers</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Settings</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar close -->
 
-  <!-- greeting -->
-<div class="greeting"></div>
-  <!-- greeting -->
-  <div class="container web">
-  	<div class="row">
-  		<div class="span12">
-  			<div class="hero-unit">
-  				<h2>Welcome to Your Portfolio</h2>
-  			</div>
-  		</div>
-  	</div>
-  	<div class="row content">
-  		<div class="span12">
-  			<h3 class="page-header">Get Stock Quote</h3>
-  			<form class="well control-group form-inline">
-  				<label>Try "AAPL" or "MSFT" or "GE":</label>
-  				<input type="text" id="symbol" class="input-" placeholder="Enter symbol">
-          		<button type="submit" class="btn btn-primary" data-loading-text="Loading quote data...">Get Quote</button>
-  			</form>
-  		</div>
-  	</div>
-  </div>
+    <div class="container web">
+        <div class="row">
+            <div class="span12">
+                <div class="hero-unit">
+                      <div class="greeting"></div>
+                    <h2>Welcome to Your Portfolio</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row content">
+            <div class="span12">
+                <h3 class="page-header">Get Stock Quote</h3>
+                <form class="well control-group form-inline">
+                    <label>Try "AAPL" or "MSFT" or "GE":</label>
+                    <input type="text" id="symbol" class="input-" placeholder="Enter symbol">
+                    <button type="submit" class="btn btn-primary" data-loading-text="Loading quote data...">Get Quote</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
