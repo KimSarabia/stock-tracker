@@ -1,35 +1,37 @@
 'use strict';
 
 $(function(){
-  $('button.getPage').click(renderPeople);
-  renderPeople();
-});
-
-$(function(){
 
 		$("button").button();
 		$("#symbol").focus();
 
+
 		//form submit event
 		$("form").submit(function(e){
+
 			e.preventDefault();
+
 			$("button").button("loading");
+
 			var ticker = $("#symbol").val();
+
 			new Markit.QuoteService(ticker, function(jsonResult) {
-				this.clearResult();
+				  //clearResult();
+
 			    //Catch errors
 			    if (!jsonResult || jsonResult.Message){
-			        this.renderAlert(jsonResult);
+			        renderAlert(jsonResult);
 			        return;
 			    }
-			    this.success(jsonResult);
+
+          renderSuccess(jsonResult);
 			});
 		});
 	});
 
 	//prototype some methods onto our Quote Service
 	function clearResult(){
-		this.resetForm();
+		resetForm();
 		$("#resultContainer").remove();
 		$("div.alert").remove();
 	};
@@ -43,14 +45,14 @@ $(function(){
 			.focus();
 	};
 
-	function success(jsonResult){
-		var $container = $("<div class='hide' id='resultContainer' />");
+	function renderSuccess(jsonResult){
+		var $container = $("<div id='resultContainer' />");
 		$container.append("<h4>"+jsonResult.Name+" ("+jsonResult.Symbol+")</h4>");
-		$container.append(this.renderResultTable(jsonResult));
+		$container.append(renderResultTable(jsonResult));
 
 		$("form").after($container);
-		$container.fadeIn('fast');
-		this.resetForm();
+		$container.hide().fadeIn('fast');
+		resetForm();
 	};
 
 	function renderAlert(jsonResult){
@@ -63,7 +65,7 @@ $(function(){
 		var $table = $("<table />"),
 			$thead = $("<thead />"),
 			$tbody = $("<tbody />"),
-			tableHeadCells = [];
+			tableHeadCells = [],
 			tableCells = [];
 
 		tableHeadCells.push("<tr>");
@@ -76,8 +78,8 @@ $(function(){
 
 		tableCells.push("<tr>");
 		tableCells.push("<td>$",jsonResult.LastPrice,"</td>");
-		tableCells.push("<td>",this.formatChgPct(jsonResult.Change),"</td>");
-		tableCells.push("<td>",this.formatChgPct(jsonResult.ChangePercent),"%</td>");
+		tableCells.push("<td>",formatChgPct(jsonResult.Change),"</td>");
+		tableCells.push("<td>",formatChgPct(jsonResult.ChangePercent),"%</td>");
 		tableCells.push("<td>",jsonResult.ChangePercentYTD.toFixed(2),"%</td>");
 		tableCells.push("<td>",jsonResult.Timestamp,"</td>");
 		tableCells.push("</tr>");
@@ -91,7 +93,8 @@ $(function(){
 		return $table;
 	};
 
-	function formatChgPct(chg){
+	//Markit.QuoteService.prototype.formatChgPct = function(chg){
+  function formatChgPct(chg){
 		//the quote API returns negative numbers already,
 		//so we just need to add the + sign to positive numbers
 		return (chg <= 0) ? chg.toFixed(2) : "+" + chg.toFixed(2);
