@@ -3,19 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>STOCK TRACKER</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8"></script>
   <script src="main.js"></script>
 </head>
 <body>
-  <h1>Stock Tracking</h1>
+  <div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>Last Price</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            <tr>
+                <td>Apple Inc</td>
+                <td>AAPL</td>
+                <td>524.49</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>Netflix Inc</td>
+                <td>NFLX</td>
+                <td>108.37</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>International Business Machines Corporation</td>
+                <td>IBM</td>
+                <td>144.79</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+    </table>
+    <a href="#" class="btn btn-primary btn-xs pull-right"><b>+</b> Add new company</a>
 
-  <form class="stockForm">
-    <input type="letter" class="stockLetter">
-    <button class="getStock">Get Stock</button>
-  </form>
+    </div>
+</div>
 
-  <div class="stocks"></div>
+
+<!-- <button class="doIt"> Do it!</button> -->
 
 
 </body>
